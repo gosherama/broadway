@@ -4,8 +4,9 @@
 <p><%= @play.description %></p>
 
 <div class="links btn-group">
-  <% if user_signed_in? %>
-    <% if @play.user_id === current_user.id %>
+  #conditional statement to display functionalities
+  <% if user_signed_in? %> # is the user signed in ?
+    <% if @play.user_id === current_user.id %> #check whether the play user_id is identical to current_user id. If yes display links.
        <%= link_to "Edit", edit_play_path(@play) %>
       <%= link_to "Delete", play_path(@play), method: :delete, data: { confirm: "Are you sure ?"} %> 
     <% end %>

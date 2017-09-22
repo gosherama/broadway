@@ -16,6 +16,7 @@ end
 def new
   @play = current_user.plays.build
   # List categories to assign in the play creation process
+  # List the catgories name (c.name) to user. Each name is associated to an id (c.id)
   @categories = Category.all.map{ |c| [c.name, c.id] }
 end
 
@@ -51,7 +52,7 @@ end
 
 private
   def play_params
-    params.require(:play).permit(:title,:description,:director,:category_id)
+    params.require(:play).permit(:title,:description,:director,:category_id, :play_img)
   end
   
   def find_play
